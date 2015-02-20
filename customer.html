@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <div id="header"></div>
+  <div id="main">
+    <ul class="menu-item-list">
+      
+    </ul>
+  </div>
+  <div id="footer"></div>
+
+
+ 
+  
+  <script type="text/template" data-template="menu-item">
+  <strong><%- title %></strong>(+)<input type="text" class="qty"><button class="add"><%- price %></button>
+  </script>
+
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/underscore/underscore.js"></script>
+  <script src="bower_components/backbone/backbone.js"></script>
+  <script src="js/tokens.js"></script>
+  <script src="js/models.js"></script>
+  <script src="js/views-customer.js"></script>
+</body>
+</html>
