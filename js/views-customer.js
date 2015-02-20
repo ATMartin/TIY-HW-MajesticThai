@@ -1,10 +1,15 @@
 
 var MenuItemView = Backbone.View.extend({
   template: _.template($('[data-template="menu-item"]').text()),
+  initialize: function(opts) {
+    this.orderCollection = opts.orderCollection;
+  },
   events: {
     'click .add' : 'addToOrder'
   },
-  addToOrder: function() {},
+  addToOrder: function() {
+     
+  },
   render: function() {
     this.$el.html(this.template(this.model.toJSON()));
     return this;
@@ -12,9 +17,12 @@ var MenuItemView = Backbone.View.extend({
 });
 
 var MenuItemsList = Backbone.View.extend({
+  initialize: function(opts) {
+    this.menuCollection = opts.menuCollection;
+  },
   render: function() {
     var self = this;
-    this.collection.forEach(function(item) {
+    this.menuCollection.forEach(function(item) {
         var newModel = new MenuItemView({model: item});
         newModel.render();
         self.$el.append(newModel.el);
@@ -23,19 +31,40 @@ var MenuItemsList = Backbone.View.extend({
   }
 });
 
-
+var MenuOrderFooter = Backbone.View.extend({
+  template: _.template($('[data-template="footer"]').text()),
+  initialize: function(opts) {
+    this.ordersCollection = opts.ordersCollection;
+    this.listenTo(this.ordersCollection, 'add sync destroy', this.render);
+  },
+  render: function() {
+    var totalPrice = this.ordersCollection.reduce(function(acc, item) {
+      return acc + item.price;
+    }, 0);
+    this.$el.append(this.template({total: totalPrice}));
+    return this;
+  }
+});
 
 $(document).ready(function() {
 
-var collection = new MenuItems();
+var ordersCollection = new Orders();
+var menuCollection = new MenuItems();
 var menuList = new MenuItemsList({
   el: '.menu-item-list',
-  collection: collection
+  menuCollection: menuCollection,
+  ordersCollection: ordersCollection
+});
+var menuFooter = new MenuOrderFooter({
+  el: '#footer',
+  ordersCollection: ordersCollection
 });
 
-collection.fetch().done(function() {
-  menuList.render();
-    
+menuCollection.fetch().done(function() {
+  menuList.render(); 
+});
+ordersCollection.fetch().done(function() {
+  menuFooter.render();
 });
   
 

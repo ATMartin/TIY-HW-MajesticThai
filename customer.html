@@ -5,7 +5,10 @@
   <title></title>
 </head>
 <body>
-  <div id="header"></div>
+  <div id="header">
+  <img src="logo.svg">
+  <h2>Majestic Thai</h2>
+  </div>
   <div id="main">
     <ul class="menu-item-list">
       
@@ -18,6 +21,11 @@
   
   <script type="text/template" data-template="menu-item">
   <strong><%- title %></strong>(+)<input type="text" class="qty"><button class="add"><%- price %></button>
+  </script>
+
+  <script type="text/template" data-template="footer">
+  <strong>Total: </strong> <%- total %>
+  <button class="place-order">ORDER</button>
   </script>
 
   <script src="bower_components/jquery/dist/jquery.js"></script>
