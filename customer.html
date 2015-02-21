@@ -20,12 +20,16 @@
  
   
   <script type="text/template" data-template="menu-item">
-  <strong><%- title %></strong>(+)<input type="text" class="qty"><button class="add"><%- price %></button>
+    <strong><%- title %></strong>
+    (<%- price %>)
+    <button class="add">+</button>
+    <button class="remove">-</button>
+    <input type="text" class="qty" value="0">
   </script>
 
   <script type="text/template" data-template="footer">
-  <strong>Total: </strong> <%- total %>
-  <button class="place-order">ORDER</button>
+    <strong>Total: </strong>$ <%- total %>
+    <button class="place-order">ORDER</button>
   </script>
 
   <script src="bower_components/jquery/dist/jquery.js"></script>

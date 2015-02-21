@@ -29,6 +29,14 @@ var Order = Backbone.Model.extend({
       items: [],
       totalPrice: 0.00
     });
+  },
+  setPrice: function(newPrice) {
+    this.set('totalPrice', parseFloat(newPrice).toFixed(2));
+    return this;
+  },
+  incrementPrice: function(delta, neg) {
+    if (neg) { delta = parseFloat(0 - delta).toFixed(2); }
+    this.set('totalPrice', (+this.get('totalPrice') + parseFloat(delta)).toFixed(2));
   }
 });
 
