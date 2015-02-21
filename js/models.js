@@ -27,7 +27,8 @@ var Order = Backbone.Model.extend({
     opts = opts || {};
     return _.defaults(opts, {
       items: [],
-      totalPrice: 0.00
+      totalPrice: 0.00,
+      completed: false
     });
   },
   setPrice: function(newPrice) {
