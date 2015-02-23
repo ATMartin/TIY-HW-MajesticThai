@@ -1,0 +1,125 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #333;
+  text-align: center;
+  color: white;
+  font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
+}
+
+#container {
+  width: 40%;
+  min-width: 400px;
+  margin: 0 auto;
+  background: #F60;
+  box-shadow: 2px 3px 3px #666;
+}
+
+#header {
+  text-align: left;
+  font-size: 25px;
+  border: 1px solid gray;
+}
+#header * {
+  display: inline-block;
+}
+#header svg {
+  vertical-align: middle;
+  height: 40px;
+  width: 40px;
+}
+#header svg use {
+  stroke: white;
+  stroke-width: 25px;
+  fill: none;
+}
+
+.menu-item-list {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+.menu-item-list li {
+  position: relative;
+  text-align: left;
+  width: 100%;
+  height: 50px;
+  padding-right: 100px;
+  line-height: 50px;
+}
+.menu-item-list li * {
+  display: inline-block;
+  vertical-align: middle;
+}
+.menu-item-list li h3 {
+  margin: 5px 10px;
+}
+.menu-item-list li .descrip {
+  width: 60%;
+  border: none;
+  background: none;
+  color: white;
+  text-align: left;
+  font-style: italic;
+}
+.menu-item-list li button {
+  font-size: 15px;
+}
+.menu-item-list li button.add {
+  border-radius: 25% 0 0 25%;
+  background: #dfd;
+}
+.menu-item-list li button.remove {
+  border-radius: 0 25% 25% 0;
+  background: #fdd;
+}
+.menu-item-list li .qty {
+  width: 3em;
+  height: 25px;
+  background: white;
+}
+.menu-item-list li .orderControls {
+  position: absolute;
+  right: 0;
+}
+
+#footer {
+  position: relative;
+  border: 1px solid gray;
+  height: 50px;
+  line-heighT: 50px;
+}
+#footer .place-order {
+  position: absolute;
+  right: 0;
+  height: 50px;
+  width: 130px;
+  background-color: #6f6;
+}
+
+.order-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.order-list > li {
+  position: relative;
+  height: auto;
+  border: 1px solid gray;
+}
+
+.complete {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 100px;
+  background-color: #3f3;
+}

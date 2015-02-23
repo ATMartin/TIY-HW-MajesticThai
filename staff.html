@@ -7,17 +7,18 @@
     .order-listing>* { display: inline-block; }
     .order-items-list { vertical-align: middle; }
   </style>
+  <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-  
-  <div id="header">
-    <h2>Majestic Thai - Staff</h2>
+  <div id="container"> 
+    <div id="header">
+      <h2>Majestic Thai - Staff</h2>
+    </div>
+    <div id="body">
+      <ul class="order-list"></ul>
+    </div>
+    <div id="footer"></div>
   </div>
-  <div id="body">
-    <ul class="order-list"></ul>
-  </div>
-  <div id="footer"></div>
-
 
   <script type="text/template" data-template="order-listing">
     <ul class="order-items-list">
@@ -25,13 +26,8 @@
       <li><%= items[i] %>x <%= i %></li>
     <% } %>
     </ul>
-    <strong><%= objectId %></strong>
-    <% 
-      var created = new Date(); 
-      // Setup for EST - how is Parse encoding this?!
-      // created.setHours(created.getHours() + 5);
-    %>
-    <p>Placed at: <%= new Date(createdAt).toString() %></p>
+    <!-- <strong><%= objectId %></strong> -->
+    <p>Placed: <%= new Date(createdAt).toString().substring(0, 21) %></p>
     <button class="complete">ORDER UP</button>
   </script>
 

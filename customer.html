@@ -3,33 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <title></title>
+  <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-  <div id="header">
-  <img src="logo.svg">
-  <h2>Majestic Thai</h2>
-  </div>
-  <div id="main">
-    <ul class="menu-item-list">
+  <div id="container">
+    <div id="header">
+      <svg viewBox="0 0 350 400">
+        <use xlink:href="img/logo.svg#Layer1"></use>
+      </svg>
+      <!-- <img src="img/logo.svg" width=50> -->
+      <h2>Majestic Thai</h2>
+    </div>
+    <div id="main">
+      <ul class="menu-item-list">
       
-    </ul>
+      </ul>
+    </div>
+    <div id="footer"></div>
   </div>
-  <div id="footer"></div>
 
-
- 
-  
   <script type="text/template" data-template="menu-item">
-    <strong><%- title %></strong>
-    (<%- price %>)
-    <button class="add">+</button>
-    <button class="remove">-</button>
-    <input type="text" class="qty" value='0'>
+    <h3><%- title %></h3>
+    <textarea class="descrip" disabled><%- description %></textarea>
+    <div class="orderControls">
+      $<%- price %>
+      <button class="add">+</button><!--
+      --><input type="text" class="qty" value='0'><!--
+      --><button class="remove">-</button>
+    </div>
   </script>
 
   <script type="text/template" data-template="footer">
     <strong>Total: </strong>$ <%- total %>
-    <button class="place-order">ORDER</button>
+    <button class="place-order">PLACE ORDER</button>
   </script>
 
   <script src="bower_components/jquery/dist/jquery.js"></script>

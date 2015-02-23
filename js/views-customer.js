@@ -1,5 +1,6 @@
 
 var MenuItemView = Backbone.View.extend({
+  tagName: 'li',
   currentQty: 0,
   template: _.template($('[data-template="menu-item"]').text()),
   initialize: function(opts) {
